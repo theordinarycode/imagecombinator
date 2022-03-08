@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import cat from "./images/cat.jpeg";
 import frame from "./images/frame.png";
+import background from "./images/xombies/cryptoZombies_test/00_bg/background_00_color.png";
 
 function App() {
   const [image, setImage] = useState(null);
@@ -20,28 +21,18 @@ function App() {
     var ctx = canvas.getContext("2d");
 
     //Draw slice
-    ctx.drawImage(
-      document.getElementById("source"),
-      33,
-      71,
-      104,
-      124,
-      21,
-      20,
-      87,
-      104
-    );
+    ctx.drawImage(document.getElementById("source2"), 0, 0);
+    ctx.drawImage(document.getElementById("source"), 0, 0);
 
     //Draw frame
-    ctx.drawImage(document.getElementById("frame"), 0, 0);
   }
 
   return (
     <div className="App">
-      <canvas id="canvas" width="150" height="150"></canvas>
+      <canvas id="canvas" width="400px" height="400px"></canvas>
       <div style={{ display: "none" }}>
-        <img id="frame" src={frame} width="132" height="150" />
-        <img id="source" src={cat} width="300" height="227" />
+        <img id="source" src={background} width="150px" height="150px" />
+        <img id="source2" src={cat} width="150px" height="150px" />
       </div>
     </div>
   );
